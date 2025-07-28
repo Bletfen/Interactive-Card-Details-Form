@@ -25,10 +25,9 @@ export default function CardForm() {
     e.preventDefault();
     const { name, value } = e.target;
 
-    const newValue = name === "cardNumber" ? formatCardNumber(value) : value;
     setFormValues((prev) => ({
       ...prev,
-      [name]: newValue,
+      [name]: value,
     }));
   }
 
@@ -36,13 +35,6 @@ export default function CardForm() {
     e.preventDefault();
     setErrors(true);
     return;
-  }
-
-  function formatCardNumber(value: string) {
-    const digitsOnly = value.replace(/\D/g, "");
-
-    const chunks = digitsOnly.match(/.{1,4}/g);
-    return chunks ? chunks.join(" ") : "";
   }
   return (
     <form
