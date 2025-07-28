@@ -3,12 +3,14 @@ export default function Cards() {
     <div
       className="w-full 
     bg-[url('/images/bg-main-mobile.png')] 
-    h-[24rem] bg-no-repeat bg-cover"
+    h-[24rem] bg-no-repeat bg-cover
+    flex flex-col pr-[1.6rem] pt-[3.2rem]"
     >
       <div
         className="w-[28.6rem] 
       bg-[linear-gradient(169deg,_#fff_5%,_#D2D3D9_91.69%)]
-      h-[15.7rem] pt-[1.4rem] rounded-md flex flex-col gap-[1.5rem]"
+      h-[15.7rem] pt-[1.4rem] rounded-md flex flex-col gap-[1.5rem]
+      self-end"
       >
         <div className="w-full bg-[#2f2f2f] h-[3.4rem]"></div>
         <div
