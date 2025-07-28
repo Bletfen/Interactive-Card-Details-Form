@@ -16,6 +16,7 @@ export default function CardForm() {
     cvc: "",
   });
   const [errors, setErrors] = useState<boolean>(false);
+  const [submit, setSubmit] = useState<boolean>(false);
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
     const { name, value } = e.target;
@@ -23,15 +24,14 @@ export default function CardForm() {
       ...prev,
       [name]: value,
     }));
-    if (!cardRegex.test(formValues.cardNumber)) {
-      return;
-    }
   }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setErrors(true);
-    return;
+    if (!cardRegex.test(formValues.cardNumber)) {
+      return;
+    }
   }
   return (
     <form
@@ -63,7 +63,11 @@ export default function CardForm() {
           className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
           text-[1.8rem]"
+          onChange={handleChange}
         />
+        {errors && !cardRegex.test(formValues.cardNumber) && (
+          <p>Wrong format, numbers only</p>
+        )}
       </div>
 
       <div className="flex gap-[1.1rem] xl:gap-[2rem]">
