@@ -1,10 +1,17 @@
 import { useState } from "react";
-
+type formState = {
+  cardHolderName: string;
+  cardNumber: string;
+  expMonth: string;
+  expYear: string;
+  cvc: string;
+};
 export default function CardForm() {
-  const [formValid, setFormValid] = useState<{}>({
+  const [formValid, setFormValid] = useState<formState>({
     cardHolderName: "",
     cardNumber: "",
-    expDate: "",
+    expMonth: "",
+    expYear: "",
     cvc: "",
   });
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -25,6 +32,7 @@ export default function CardForm() {
         <p className="uppercase tracking-[0.2rem]">Cardholder Name</p>
         <input
           type="text"
+          name="cardHolderName"
           placeholder="e.g. Jane Appleseed"
           className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
@@ -37,6 +45,7 @@ export default function CardForm() {
         <p className="uppercase tracking-[0.2rem]">Card Number</p>
         <input
           type="text"
+          name="cardNumber"
           placeholder="e.g. 1234 5678 9123 0000"
           className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
@@ -50,6 +59,7 @@ export default function CardForm() {
           <div className="flex gap-[0.8rem] xl:gap-[1rem]">
             <input
               type="text"
+              name="expMonth"
               placeholder="MM"
               className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
@@ -59,6 +69,7 @@ export default function CardForm() {
             />
             <input
               type="text"
+              name="expYear"
               placeholder="YY"
               className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
@@ -72,6 +83,7 @@ export default function CardForm() {
           <p className="uppercase tracking-[0.2rem]">CVC</p>
           <input
             type="text"
+            name="cvc"
             placeholder="e.g. 123"
             className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
