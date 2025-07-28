@@ -6,6 +6,7 @@ type formState = {
   expYear: string;
   cvc: string;
 };
+const cardRegex = /^\d{4}[\s\-]?\d{4}[\s\-]?\d{4}[\s\-]?\d{4}$/;
 export default function CardForm() {
   const [formValues, setFormValues] = useState<formState>({
     cardHolderName: "",
@@ -22,6 +23,9 @@ export default function CardForm() {
       ...prev,
       [name]: value,
     }));
+    if (!cardRegex.test(formValues.cardNumber)) {
+      return;
+    }
   }
 
   function handleSubmit(e: React.FormEvent) {
