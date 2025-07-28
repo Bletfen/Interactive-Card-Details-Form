@@ -24,18 +24,25 @@ export default function CardForm() {
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
     const { name, value } = e.target;
+
+    const newValue = name === "cardNumber" ? formatCardNumber(value) : value;
     setFormValues((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: newValue,
     }));
   }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setErrors(true);
-    if (isValidCardNumber) {
-      return;
-    }
+    return;
+  }
+
+  function formatCardNumber(value: string) {
+    const digitsOnly = value.replace(/\D/g, "");
+
+    const chunks = digitsOnly.match(/.{1,4}/g);
+    return chunks ? chunks.join(" ") : "";
   }
   return (
     <form
