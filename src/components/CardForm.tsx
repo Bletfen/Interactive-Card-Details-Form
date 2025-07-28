@@ -20,8 +20,7 @@ export default function CardForm() {
   const cardNumber = formValues.cardNumber;
   const onlyDigits = cardNumber.replace(/\s/g, "");
   const isValidCardNumber = /^[\d\s]+$/.test(cardNumber);
-  const isValidCardLength =
-    /^[\d\s]+$/.test(cardNumber) && onlyDigits.length === 16;
+  const isValidCardLength = onlyDigits.length === 16;
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
     const { name, value } = e.target;
@@ -71,6 +70,9 @@ export default function CardForm() {
           onChange={handleChange}
         />
         {errors && !isValidCardNumber && <p>Wrong format, numbers only</p>}
+        {errors && isValidCardNumber && !isValidCardLength && (
+          <p>Card number must be 16 digits</p>
+        )}
       </div>
 
       <div className="flex gap-[1.1rem] xl:gap-[2rem]">
