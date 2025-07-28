@@ -6,6 +6,10 @@ type formState = {
   expYear: string;
   cvc: string;
 };
+type errorState = {
+  cardHolderName?: string;
+  cardNumber?: string;
+};
 
 export default function CardForm() {
   const [formValues, setFormValues] = useState<formState>({
@@ -15,26 +19,39 @@ export default function CardForm() {
     expYear: "",
     cvc: "",
   });
-  const [errors, setErrors] = useState<boolean>(false);
+  const [errors, setErrors] = useState<errorState>({});
   const [submit, setSubmit] = useState<boolean>(false);
-  const cardNumber = formValues.cardNumber;
-  const onlyDigits = cardNumber.replace(/\s/g, "");
-  const isValidCardNumber = /^[\d\s]+$/.test(cardNumber);
-  const isValidCardLength = onlyDigits.length === 16;
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    e.preventDefault();
-    const { name, value } = e.target;
 
+  function formatCardNumber(value: string) {
+    const digitsOnly = value.replace(/\D/g, "");
+    const chunks = digitsOnly.match(/.{1,4}/g);
+    return chunks ? chunks.join(" ") : "";
+  }
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const { name, value } = e.target;
+    const newValue = name === "cardNumber" ? formatCardNumber(value) : value;
     setFormValues((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: newValue,
     }));
   }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setErrors(true);
-    return;
+    const newErrors: errorState = {};
+    const onlyDigits = formValues.cardNumber;
+    if (!formValues.cardHolderName.trim) {
+      newErrors.cardHolderName = "Can't be blank";
+    }
+
+    if (!/^[\d\s]+$/.test(formValues.cardNumber)) {
+      newErrors.cardNumber = "Wrong format, numbers only";
+    } else if (onlyDigits.length !== 16) {
+      newErrors.cardNumber = "Card number must be 16 digits";
+    }
+
+    setErrors(newErrors);
   }
   return (
     <form
@@ -54,7 +71,7 @@ export default function CardForm() {
           text-[1.8rem]"
           onChange={handleChange}
         />
-        {errors && formValues.cardHolderName === "" && <p>Can't be blank</p>}
+        {errors.cardHolderName && <p>{errors.cardHolderName}</p>}
       </div>
 
       <div className="flex flex-col gap-[0.9rem]">
@@ -68,10 +85,6 @@ export default function CardForm() {
           text-[1.8rem]"
           onChange={handleChange}
         />
-        {errors && !isValidCardNumber && <p>Wrong format, numbers only</p>}
-        {errors && isValidCardNumber && !isValidCardLength && (
-          <p>Card number must be 16 digits</p>
-        )}
       </div>
 
       <div className="flex gap-[1.1rem] xl:gap-[2rem]">
