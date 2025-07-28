@@ -7,26 +7,34 @@ type formState = {
   cvc: string;
 };
 export default function CardForm() {
-  const [formValid, setFormValid] = useState<formState>({
+  const [formValues, setFormValues] = useState<formState>({
     cardHolderName: "",
     cardNumber: "",
     expMonth: "",
     expYear: "",
     cvc: "",
   });
+  const [errors, setErrors] = useState<boolean>(false);
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
-    if (formValid.cardHolderName === "") {
-      console.log("Can't be blank");
-      return;
-    }
+    const { name, value } = e.target;
+    setFormValues((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setErrors(true);
+    return;
   }
   return (
     <form
       className="mt-[9.2rem] flex flex-col text-start text-[#21092f]
    text-[1.2rem] font-medium px-[2.4rem] gap-[2rem] pb-[4.5rem]
    self-center xl:gap-[2.6rem]"
-      onSubmit={() => setFormValid(formValid)}
+      onSubmit={handleSubmit}
     >
       <div className="flex flex-col gap-[0.9rem]">
         <p className="uppercase tracking-[0.2rem]">Cardholder Name</p>
@@ -39,6 +47,7 @@ export default function CardForm() {
           text-[1.8rem]"
           onChange={handleChange}
         />
+        {errors && formValues.cardHolderName === "" && <p>Can't be blank</p>}
       </div>
 
       <div className="flex flex-col gap-[0.9rem]">
