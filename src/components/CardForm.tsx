@@ -1,4 +1,19 @@
+import { useState } from "react";
+
 export default function CardForm() {
+  const [formValid, setFormValid] = useState<{}>({
+    cardHolderName: "",
+    cardNumber: "",
+    expDate: "",
+    cvc: "",
+  });
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    e.preventDefault();
+    if (formValid.cardHolderName === "") {
+      console.log("Can't be blank");
+      return;
+    }
+  }
   return (
     <form
       className="mt-[9.2rem] flex flex-col text-start text-[#21092f]
@@ -13,6 +28,7 @@ export default function CardForm() {
           className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
           text-[1.8rem]"
+          onChange={handleChange}
         />
       </div>
 
