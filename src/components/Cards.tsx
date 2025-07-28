@@ -21,11 +21,14 @@ export default function Cards() {
         <div className="w-full bg-[#2f2f2f] h-[3.4rem] xl:hidden"></div>
         <div
           className="w-[23rem] py-[0.9rem] pr-[1rem]
-        text-end bg-[#adb5be] rounded-[0.4rem]
-        self-center text-[9px] font-medium 
-        text-[#fff] tracking-[1.286px] xl:hidden"
+        bg-[#adb5be] rounded-[0.4rem] flex items-end justify-end
+        self-center text-[9px] font-medium uppercase
+        text-[#fff] tracking-[1.286px] xl:w-[36.1rem] 
+        xl:h-[3.8rem] xl:mt-[8.7rem] xl:py-[1rem] xl:pr-[1.5rem]
+        xl:text-[1.4rem] xl:tracking-[0.2rem]
+        "
         >
-          123
+          000
         </div>
       </div>
 
@@ -60,8 +63,9 @@ export default function Cards() {
           0000 0000 0000 0000
         </p>
         <div
-          className="uppercase flex
-        justify-between mt-[1.7rem]
+          className="uppercase flex text-[0.9rem] tracking-[1.286px]
+        justify-between mt-[1.7rem] font-medium
+        xl:text-[1.4rem] xl:tracking-[0.2rem]
         "
         >
           <span>felicia leire</span>
