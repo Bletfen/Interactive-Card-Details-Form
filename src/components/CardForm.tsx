@@ -6,7 +6,7 @@ type formState = {
   expYear: string;
   cvc: string;
 };
-const cardRegex = /^\d{4}[\s\-]?\d{4}[\s\-]?\d{4}[\s\-]?\d{4}$/;
+
 export default function CardForm() {
   const [formValues, setFormValues] = useState<formState>({
     cardHolderName: "",
@@ -17,6 +17,11 @@ export default function CardForm() {
   });
   const [errors, setErrors] = useState<boolean>(false);
   const [submit, setSubmit] = useState<boolean>(false);
+  const cardNumber = formValues.cardNumber;
+  const onlyDigits = cardNumber.replace(/\s/g, "");
+  const isValidCardNumber = /^[\d\s]+$/.test(cardNumber);
+  const isValidCardLength =
+    /^[\d\s]+$/.test(cardNumber) && onlyDigits.length === 16;
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
     const { name, value } = e.target;
@@ -29,7 +34,7 @@ export default function CardForm() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setErrors(true);
-    if (!cardRegex.test(formValues.cardNumber)) {
+    if (isValidCardNumber) {
       return;
     }
   }
@@ -65,9 +70,7 @@ export default function CardForm() {
           text-[1.8rem]"
           onChange={handleChange}
         />
-        {errors && !cardRegex.test(formValues.cardNumber) && (
-          <p>Wrong format, numbers only</p>
-        )}
+        {errors && !isValidCardNumber && <p>Wrong format, numbers only</p>}
       </div>
 
       <div className="flex gap-[1.1rem] xl:gap-[2rem]">
