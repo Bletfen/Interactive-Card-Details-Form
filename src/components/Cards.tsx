@@ -6,7 +6,8 @@ export default function Cards() {
     h-[24rem] bg-no-repeat bg-cover
     flex flex-col pr-[1.6rem] pt-[3.2rem] pl-[1.6rem] 
     relative items-center xl:w-[48.3rem] 
-    xl:h-screen xl:bg-[url('/images/bg-main-desktop.png')]"
+    xl:h-screen xl:bg-[url('/images/bg-main-desktop.png')]
+    xl:p-[unset]"
     >
       <div
         className="w-[28.6rem] 
@@ -14,7 +15,8 @@ export default function Cards() {
       h-[15.7rem] pt-[1.4rem] 
       rounded-md flex flex-col gap-[1.5rem] ml-[7.3rem]
       xl:mt-[46.9rem] xl:bg-[url('images/bg-card-back.png')]
-      xl:bg-no-repeat xl:bg-center xl:w-[44.7rem] xl:h-[24.5rem]"
+      xl:bg-no-repeat xl:bg-center xl:w-[44.7rem] xl:h-[24.5rem]
+      xl:m-[unset] xl:transform xl:translate-x-1/2"
       >
         <div className="w-full bg-[#2f2f2f] h-[3.4rem] xl:hidden"></div>
         <div
@@ -32,7 +34,9 @@ export default function Cards() {
       pt-[1.7rem] px-[1.9rem] pb-[2rem]
       bg-[url(/images/bg-card-front.png)] bg-cover bg-no-repeat
       rounded-md text-[#fff] font-medium mt-[9.5rem] mr-[7.3rem]
-      xl:mt-[18.7rem] xl:ml-[16.4rem]"
+      xl:mt-[18.7rem] xl:w-[44.7rem] xl:h-[24.5rem]
+      xl:mr-[unset] xl:transform xl:translate-x-[28.63%]
+      "
       >
         <svg
           width="54"
@@ -40,6 +44,7 @@ export default function Cards() {
           viewBox="0 0 54 30"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          className="w-[5.4rem] h-[3rem] xl:w-[8.4rem] xl:h-[4.7rem]"
         >
           <ellipse cx="15.0932" cy="15" rx="15.0932" ry="15" fill="white" />
           <path
