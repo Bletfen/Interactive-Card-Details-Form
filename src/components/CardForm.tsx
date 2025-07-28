@@ -2,7 +2,8 @@ export default function CardForm() {
   return (
     <form
       className="mt-[9.2rem] flex flex-col text-start text-[#21092f]
-   text-[1.2rem] font-medium px-[2.4rem] gap-[2rem] pb-[4.5rem]"
+   text-[1.2rem] font-medium px-[2.4rem] gap-[2rem] pb-[4.5rem]
+   self-center xl:gap-[2.6rem]"
     >
       <div className="flex flex-col gap-[0.9rem]">
         <p className="uppercase tracking-[0.2rem]">Cardholder Name</p>
@@ -26,17 +27,18 @@ export default function CardForm() {
         />
       </div>
 
-      <div className="flex gap-[1.1rem]">
+      <div className="flex gap-[1.1rem] xl:gap-[2rem]">
         <div className="flex flex-col gap-[0.9rem]">
           <p className="uppercase tracking-[0.2rem]">Exp. Date (MM/YY)</p>
-          <div className="flex gap-[0.8rem]">
+          <div className="flex gap-[0.8rem] xl:gap-[1rem]">
             <input
               type="text"
               placeholder="MM"
               className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
           w-[7.2rem]
-          text-[1.8rem]"
+          text-[1.8rem]
+          xl:w-[8rem]"
             />
             <input
               type="text"
@@ -44,7 +46,8 @@ export default function CardForm() {
               className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
           w-[7.2rem]
-          text-[1.8rem]"
+          text-[1.8rem]
+          xl:w-[8rem]"
             />
           </div>
         </div>
@@ -63,8 +66,8 @@ export default function CardForm() {
       <button
         className="w-full bg-[#21092f] 
       text-[#fff] py-[1.5rem] rounded-[0.8rem]
-      text-[1.8rem]
-      font-medium cursor-[pointer]"
+      text-[1.8rem] mt-[0.8rem]
+      font-medium cursor-[pointer] xl-[1.4rem]"
       >
         Confirm
       </button>
