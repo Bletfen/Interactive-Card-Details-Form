@@ -4,13 +4,12 @@ export default function Cards() {
       className="w-full 
     bg-[url('/images/bg-main-mobile.png')] 
     h-[24rem] bg-no-repeat bg-cover
-    flex flex-col pr-[1.6rem] pt-[3.2rem] pl-[1.6rem] relative"
+    flex flex-col pr-[1.6rem] pt-[3.2rem] pl-[1.6rem] relative items-center"
     >
       <div
         className="w-[28.6rem] 
       bg-[linear-gradient(169deg,_#fff_5%,_#D2D3D9_91.69%)]
-      h-[15.7rem] pt-[1.4rem] rounded-md flex flex-col gap-[1.5rem]
-      self-end"
+      h-[15.7rem] pt-[1.4rem] rounded-md flex flex-col gap-[1.5rem] ml-[7.3rem]"
       >
         <div className="w-full bg-[#2f2f2f] h-[3.4rem]"></div>
         <div
@@ -26,7 +25,7 @@ export default function Cards() {
         className="absolute w-[28.5rem] 
       pt-[1.7rem] px-[1.9rem] pb-[2rem]
       bg-[url(/images/bg-card-front.png)] bg-cover bg-no-repeat
-      rounded-md text-[#fff] font-medium mt-[9.5rem]"
+      rounded-md text-[#fff] font-medium mt-[9.5rem] mr-[7.3rem]"
       >
         <svg
           width="54"
