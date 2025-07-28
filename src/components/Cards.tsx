@@ -35,7 +35,8 @@ export default function Cards() {
       bg-[url(/images/bg-card-front.png)] bg-cover bg-no-repeat
       rounded-md text-[#fff] font-medium mt-[9.5rem] mr-[7.3rem]
       xl:mt-[18.7rem] xl:w-[44.7rem] xl:h-[24.5rem]
-      xl:mr-[unset] xl:transform xl:translate-x-[28.63%]
+      xl:mr-[unset] xl:transform xl:translate-x-[32%]
+      xl:pt-[3.2rem] xl:pr-[3.2rem] xl:pb-[2.6rem] xl:pl-[3.1rem]
       "
       >
         <svg
@@ -52,12 +53,16 @@ export default function Cards() {
             stroke="white"
           />
         </svg>
-        <p className="text-[1.8rem] tracking-[2.2px] mt-[3.7rem]">
-          9591 6489 6389 1011
+        <p
+          className="text-[1.8rem] tracking-[2.2px] mt-[3.7rem] font-medium
+        xl:text-[2.8rem] xl:tracking-[3.422px] xl:mt-[6.4rem]"
+        >
+          0000 0000 0000 0000
         </p>
         <div
           className="uppercase flex
-        justify-between mt-[1.7rem]"
+        justify-between mt-[1.7rem]
+        "
         >
           <span>felicia leire</span>
           <span>09/26</span>
