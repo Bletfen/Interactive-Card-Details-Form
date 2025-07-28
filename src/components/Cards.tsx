@@ -4,7 +4,7 @@ export default function Cards() {
       className="w-full 
     bg-[url('/images/bg-main-mobile.png')] 
     h-[24rem] bg-no-repeat bg-cover
-    flex flex-col pr-[1.6rem] pt-[3.2rem]"
+    flex flex-col pr-[1.6rem] pt-[3.2rem] relative"
     >
       <div
         className="w-[28.6rem] 
@@ -21,6 +21,12 @@ export default function Cards() {
           123
         </div>
       </div>
+
+      <div
+        className="absolute w-[28.5rem] h-[15.6rem] 
+      pt-[1.7rem] px-[1.9rem]
+      bg-[url(/images/bg-card-front.png)] bg-cover bg-no-repeat bg-center"
+      ></div>
     </div>
   );
 }
