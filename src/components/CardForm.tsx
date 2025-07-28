@@ -2,7 +2,7 @@ export default function CardForm() {
   return (
     <form
       className="mt-[9.2rem] flex flex-col text-start text-[#21092f]
-   text-[1.2rem] font-medium px-[2.4rem] gap-[2rem]"
+   text-[1.2rem] font-medium px-[2.4rem] gap-[2rem] pb-[4.5rem]"
     >
       <div className="flex flex-col gap-[0.9rem]">
         <p className="uppercase tracking-[0.2rem]">Cardholder Name</p>
