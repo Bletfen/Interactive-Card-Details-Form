@@ -20,17 +20,19 @@ export default function CardForm() {
     cvc: "",
   });
   const [errors, setErrors] = useState<errorState>({});
-  const [submit, setSubmit] = useState<boolean>(false);
+  // const [submit, setSubmit] = useState<boolean>(false);
 
   function formatCardNumber(value: string) {
-    const digitsOnly = value.replace(/\D/g, "");
+    const digitsOnly = value.replace(/\D/g, "").slice(0, 16);
     const chunks = digitsOnly.match(/.{1,4}/g);
     return chunks ? chunks.join(" ") : "";
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
+
     const newValue = name === "cardNumber" ? formatCardNumber(value) : value;
+
     setFormValues((prev) => ({
       ...prev,
       [name]: newValue,
@@ -41,7 +43,7 @@ export default function CardForm() {
     e.preventDefault();
     const newErrors: errorState = {};
     const onlyDigits = formValues.cardNumber;
-    if (!formValues.cardHolderName.trim) {
+    if (!formValues.cardHolderName.trim()) {
       newErrors.cardHolderName = "Can't be blank";
     }
 
@@ -83,8 +85,10 @@ export default function CardForm() {
           className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
           text-[1.8rem]"
+          value={formValues.cardNumber}
           onChange={handleChange}
         />
+        {errors.cardNumber && <p>{errors.cardNumber}</p>}
       </div>
 
       <div className="flex gap-[1.1rem] xl:gap-[2rem]">
