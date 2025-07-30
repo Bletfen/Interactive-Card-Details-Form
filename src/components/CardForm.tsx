@@ -80,7 +80,7 @@ export default function CardForm() {
       </div>
 
       <div className="flex flex-col gap-[0.9rem]">
-        <p className="uppercase tracking-[0.2rem]">Card Number</p>
+        <label className="uppercase tracking-[0.2rem]">Card Number</label>
         <input
           type="text"
           name="cardNumber"
