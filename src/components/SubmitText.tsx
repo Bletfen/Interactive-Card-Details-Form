@@ -1,7 +1,10 @@
+import type { formState } from "../types";
 export default function SubmitText({
   setSubmit,
+  setFormValues,
 }: {
   setSubmit: React.Dispatch<React.SetStateAction<boolean>>;
+  setFormValues: React.Dispatch<React.SetStateAction<formState>>;
 }) {
   return (
     <div
