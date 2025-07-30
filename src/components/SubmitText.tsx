@@ -47,7 +47,7 @@ export default function SubmitText({
       <button
         className="py-[1.5rem] bg-[#21092f] 
       w-full rounded-[0.8rem] mt-[4.8rem] text-[#fff] text-[1.8rem]
-      font-medium"
+      font-medium cursor-[pointer]"
         onClick={() => setSubmit(true)}
       >
         Continue
