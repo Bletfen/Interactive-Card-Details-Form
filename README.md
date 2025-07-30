@@ -1,69 +1,89 @@
-# React + TypeScript + Vite
+# 💳 Interactive Card Details Form
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive and accessible credit card details form built with React and TypeScript. Users can input their card details and receive real-time feedback with formatted inputs and validation logic. Inspired by Frontend Mentor's challenge.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+👉 [View Live Site](https://interactive-card-details-form-delta-azure.vercel.app/)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Technologies Used
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- ⚛️ React
+- ⌨️ TypeScript
+- 🎨 Tailwind CSS
+- 🧪 Form Validation Logic
+- 🧠 React Hooks (`useState`)
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📦 Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- ✅ Real-time input formatting for card number (groups of 4 digits)
+- ✅ Only digits allowed in expiry date and CVC
+- ✅ Field-specific error validation with user feedback
+- ✅ Smooth mobile-first responsive design
+- ✅ Custom SVG success confirmation
+- ✅ Form reset with `Continue` button
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📁 Folder Structure
+
+src/
+│
+├── components/
+│ ├── Cards.tsx
+│ ├── CardForm.tsx
+│ └── SubmitText.tsx
+│
+├── utils/
+│ ├── handleChange.ts
+│ ├── handleSubmit.ts
+│ └── checkIfNoErrors.ts
+│
+├── types/
+│ └── index.ts
+│
+├── App.tsx
+└── main.tsx
+
+---
+
+## 🧩 Getting Started
+
+1. **Clone the repo**
+
+   ```bash
+   git clone https://github.com/Bletfen/Interactive-Card-Details-Form.git
+
+    Install dependencies
+   ```
+
+npm install
+
+Start development server
+
+npm run dev
+
+Build for production
+
+    npm run build
+
+🧪 Validation Highlights
+
+    Card number: must contain exactly 16 digits (formatted with spaces)
+
+    Expiration Month / Year: must be digits only
+
+    CVC: must contain exactly 3 digits
+
+    All fields required
+
+📝 License
+
+This project is open source and available under the MIT License.
+🙌 Acknowledgments
+
+Challenge based on Frontend Mentor — thanks for providing great UI inspiration!
