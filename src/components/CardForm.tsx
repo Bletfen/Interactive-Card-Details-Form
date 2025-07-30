@@ -74,9 +74,11 @@ export default function CardForm() {
           name="cardHolderName"
           id="cardHolderName"
           placeholder="e.g. Jane Appleseed"
-          className="border border-[#dfdee0] 
+          className={`border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] 
-          text-[1.8rem]"
+          text-[1.8rem] ${
+            errors.cardHolderName ? "outline outline-2 outline-[#ff5050]" : ""
+          }`}
           value={formValues.cardHolderName}
           onChange={handleChange}
         />
@@ -96,9 +98,11 @@ export default function CardForm() {
           name="cardNumber"
           id="cardNumber"
           placeholder="e.g. 1234 5678 9123 0000"
-          className="border border-[#dfdee0] 
+          className={`border border-[#dfdee0]
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem]
-          text-[1.8rem]"
+          text-[1.8rem] ${
+            errors.cardNumber ? "outline outline-2 outline-[#ff5050]" : ""
+          }`}
           value={formValues.cardNumber}
           onChange={handleChange}
           maxLength={19}
@@ -122,11 +126,13 @@ export default function CardForm() {
               name="expMonth"
               id="expMonth"
               placeholder="MM"
-              className="border border-[#dfdee0] 
-          rounded-[0.8rem] pl-[1.6rem] py-[1.1rem]
-          w-[7.2rem]
-          text-[1.8rem]
-          xl:w-[8rem]"
+              className={`border border-[#dfdee0] 
+                rounded-[0.8rem] pl-[1.6rem] py-[1.1rem]
+                w-[7.2rem]
+                text-[1.8rem]
+                xl:w-[8rem] ${
+                  errors.expMonth ? "outline outline-2 outline-[#ff5050]" : ""
+                }`}
               value={formValues.expMonth}
               onChange={handleChange}
               maxLength={2}
@@ -136,11 +142,13 @@ export default function CardForm() {
               name="expYear"
               id="expYear"
               placeholder="YY"
-              className="border border-[#dfdee0] 
-          rounded-[0.8rem] pl-[1.6rem] py-[1.1rem]
-          w-[7.2rem]
-          text-[1.8rem]
-          xl:w-[8rem]"
+              className={`border border-[#dfdee0] 
+                rounded-[0.8rem] pl-[1.6rem] py-[1.1rem]
+                w-[7.2rem]
+                text-[1.8rem]
+                xl:w-[8rem] ${
+                  errors.expYear ? "outline outline-2 outline-[#ff5050]" : ""
+                }`}
               value={formValues.expYear}
               onChange={handleChange}
               maxLength={2}
@@ -161,10 +169,14 @@ export default function CardForm() {
             name="cvc"
             id="cvc"
             placeholder="e.g. 123"
-            className="border border-[#dfdee0] 
-          rounded-[0.8rem] pl-[1.6rem] py-[1.1rem]
-          w-full
-          text-[1.8rem]"
+            className={`border border-[#dfdee0] 
+              rounded-[0.8rem] pl-[1.6rem] py-[1.1rem]
+              w-full
+              text-[1.8rem] ${
+                errors.cardHolderName
+                  ? "outline outline-2 outline-[#ff5050]"
+                  : ""
+              }`}
             value={formValues.cvc}
             onChange={handleChange}
             maxLength={3}
