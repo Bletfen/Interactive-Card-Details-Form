@@ -25,8 +25,8 @@ function App() {
       {submit ? (
         <SubmitText
           setSubmit={setSubmit}
-          formValue={formValue}
-          setFormValue={setFormValue}
+          formValues={formValues}
+          setFormValue={setFormValues}
         />
       ) : (
         <CardForm setSubmit={setSubmit} />

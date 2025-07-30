@@ -16,18 +16,20 @@ type errorState = {
 };
 export default function CardForm({
   setSubmit,
-  formValue,
-  setFormValue,
+  formValues,
+  setFormValues,
 }: {
   setSubmit: React.Dispatch<React.SetStateAction<boolean>>;
+  formValue: formState;
+  setFormValue: React.Dispatch<React.SetStateAction<formState>>;
 }) {
-  const [formValues, setFormValues] = useState<formState>({
-    cardHolderName: "",
-    cardNumber: "",
-    expMonth: "",
-    expYear: "",
-    cvc: "",
-  });
+  // const [formValues, setFormValues] = useState<formState>({
+  //   cardHolderName: "",
+  //   cardNumber: "",
+  //   expMonth: "",
+  //   expYear: "",
+  //   cvc: "",
+  // });
   const [errors, setErrors] = useState<errorState>({
     cardHolderName: false,
     cardNumber: false,
