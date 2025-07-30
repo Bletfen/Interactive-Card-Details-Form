@@ -1,66 +1,48 @@
 import { useState } from "react";
 type formState = {
   cardHolderName: string;
-  cardNumber: string;
   expMonth: string;
   expYear: string;
   cvc: string;
 };
 type errorState = {
-  cardHolderName?: string;
-  cardNumber?: string;
+  cardHolderName: string;
+  cardNumber: string;
+  expMonth: string;
+  expYear: string;
+  cvc: string;
 };
 
 export default function CardForm() {
   const [formValues, setFormValues] = useState<formState>({
+    cardHolderName: "",
+    expMonth: "",
+    expYear: "",
+    cvc: "",
+  });
+  const [errors, setErrors] = useState<errorState>({
     cardHolderName: "",
     cardNumber: "",
     expMonth: "",
     expYear: "",
     cvc: "",
   });
-  const [errors, setErrors] = useState<errorState>({});
   // const [submit, setSubmit] = useState<boolean>(false);
-
-  function formatCardNumber(value: string) {
-    const digitsOnly = value.replace(/\D/g, "").slice(0, 16);
-    const chunks = digitsOnly.match(/.{1,4}/g);
-    return chunks ? chunks.join(" ") : "";
-  }
-
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const { name, value } = e.target;
-
-    const newValue = name === "cardNumber" ? formatCardNumber(value) : value;
-
-    setFormValues((prev) => ({
-      ...prev,
-      [name]: newValue,
-    }));
-  }
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    const newErrors: errorState = {};
-    const onlyDigits = formValues.cardNumber;
-    if (!formValues.cardHolderName.trim()) {
-      newErrors.cardHolderName = "Can't be blank";
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (!formValues.cardHolderName) {
     }
+  };
 
-    if (!/^[\d\s]+$/.test(formValues.cardNumber)) {
-      newErrors.cardNumber = "Wrong format, numbers only";
-    } else if (onlyDigits.length !== 16) {
-      newErrors.cardNumber = "Card number must be 16 digits";
+  const handleSubmit = () => {
+    if (!formValues.cardHolderName) {
+      setErrors({ ...errors });
     }
-
-    setErrors(newErrors);
-  }
+  };
   return (
     <form
       className="mt-[9.2rem] flex flex-col text-start text-[#21092f]
    text-[1.2rem] font-medium px-[2.4rem] gap-[2rem] pb-[4.5rem]
    self-center xl:gap-[2.6rem]"
-      onSubmit={handleSubmit}
     >
       <div className="flex flex-col gap-[0.9rem]">
         <p className="uppercase tracking-[0.2rem]">Cardholder Name</p>
@@ -71,6 +53,7 @@ export default function CardForm() {
           className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
           text-[1.8rem]"
+          value={!formValues.cardHolderName ? formValues.cardHolderName : ""}
           onChange={handleChange}
         />
         {errors.cardHolderName && <p>{errors.cardHolderName}</p>}
@@ -88,7 +71,6 @@ export default function CardForm() {
           value={formValues.cardNumber}
           onChange={handleChange}
         />
-        {errors.cardNumber && <p>{errors.cardNumber}</p>}
       </div>
 
       <div className="flex gap-[1.1rem] xl:gap-[2rem]">
