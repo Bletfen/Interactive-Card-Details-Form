@@ -13,7 +13,9 @@ type errorState = {
   expYear: boolean;
   cvc: boolean;
 };
-export default function CardForm() {
+export default function CardForm(
+  setSubmit: React.Dispatch<React.SetStateAction<boolean>>
+) {
   const [formValues, setFormValues] = useState<formState>({
     cardHolderName: "",
     cardNumber: "",
@@ -56,6 +58,15 @@ export default function CardForm() {
       expYear: !formValues.expYear.trim(),
       cvc: !formValues.cvc.trim() || formValues.cvc.length < 3,
     });
+    if (
+      errors.cardHolderName &&
+      errors.cardNumber &&
+      errors.expMonth &&
+      errors.expYear &&
+      errors.cvc
+    ) {
+      setSubmit(true);
+    }
   };
   return (
     <form
