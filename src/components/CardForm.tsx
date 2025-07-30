@@ -80,10 +80,13 @@ export default function CardForm() {
       </div>
 
       <div className="flex flex-col gap-[0.9rem]">
-        <label className="uppercase tracking-[0.2rem]">Card Number</label>
+        <label className="uppercase tracking-[0.2rem]" htmlFor="cardNumber">
+          Card Number
+        </label>
         <input
           type="text"
           name="cardNumber"
+          id="cardNumber"
           placeholder="e.g. 1234 5678 9123 0000"
           className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
