@@ -97,7 +97,7 @@ export default function CardForm() {
           xl:w-[8rem]"
               value={formValues.expMonth}
               onChange={handleChange}
-              maxLength={16}
+              maxLength={2}
             />
             <input
               type="text"
