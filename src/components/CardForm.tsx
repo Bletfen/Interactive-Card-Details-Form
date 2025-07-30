@@ -37,7 +37,7 @@ export default function CardForm() {
       const formatted = noSpaces.match(/.{1,4}/g)?.join(" ") || "";
       setFormValues({ ...formValues, [name]: formatted });
     } else if (["expMonth", "expYear", "cvc"].includes(name)) {
-      if (!isDigitsOnly(value)) {
+      if (isDigitsOnly(value)) {
         setFormValues({ ...formValues, [name]: value });
       }
     } else {
