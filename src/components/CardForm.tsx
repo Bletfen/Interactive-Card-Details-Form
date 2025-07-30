@@ -61,11 +61,11 @@ export default function CardForm({
       cvc: !formValues.cvc.trim() || formValues.cvc.length < 3,
     });
     if (
-      errors.cardHolderName &&
-      errors.cardNumber &&
-      errors.expMonth &&
-      errors.expYear &&
-      errors.cvc
+      !errors.cardHolderName &&
+      !errors.cardNumber &&
+      !errors.expMonth &&
+      !errors.expYear &&
+      !errors.cvc
     ) {
       setSubmit(true);
     }
