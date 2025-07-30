@@ -15,7 +15,7 @@ function App() {
   });
   return (
     <div className="flex flex-col xl:flex-row xl:gap-[34.9rem]">
-      <Cards />
+      <Cards formValues={formValues} />
       {submit ? (
         <SubmitText setSubmit={setSubmit} />
       ) : (

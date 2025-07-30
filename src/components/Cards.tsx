@@ -1,3 +1,5 @@
+import type { formState } from "../types";
+
 export default function Cards() {
   return (
     <div
