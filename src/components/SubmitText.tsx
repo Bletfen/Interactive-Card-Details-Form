@@ -1,6 +1,9 @@
 export default function SubmitText() {
   return (
-    <div className="flex flex-col items-center mt-[9.1rem] px-[2.4rem] pb-[8.2rem]">
+    <div
+      className="flex flex-col items-center mt-[9.1rem] 
+    px-[2.4rem] xl:justify-center xl:m-[unset] xl:ml-[10rem]"
+    >
       <svg
         width="80"
         height="80"

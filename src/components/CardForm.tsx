@@ -74,7 +74,7 @@ export default function CardForm({
     <form
       className="mt-[9.2rem] flex flex-col text-start text-[#21092f]
    text-[1.2rem] font-medium px-[2.4rem] gap-[2rem] pb-[4.5rem]
-   self-center xl:gap-[2.6rem]"
+   self-center xl:gap-[2.6rem] xl:m-[unset]"
       onSubmit={handleSubmit}
     >
       <div className="flex flex-col gap-[0.9rem]">
