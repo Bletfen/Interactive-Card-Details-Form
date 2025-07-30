@@ -98,7 +98,7 @@ export default function CardForm() {
           xl:w-[8rem]"
                 value={formValues.expMonth}
               />
-              {errors.expMonth && <p></p>}
+              {errors.expMonth && <p>Can’t be blank</p>}
             </div>
             <div className="flex flex-col items-start gap-[0.8rem]">
               <input
@@ -112,6 +112,7 @@ export default function CardForm() {
           xl:w-[8rem]"
                 value={formValues.expYear}
               />
+              {errors.expMonth && <p>Can’t be blank</p>}
             </div>
           </div>
         </div>
