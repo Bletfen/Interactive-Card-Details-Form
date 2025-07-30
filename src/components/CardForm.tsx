@@ -47,7 +47,7 @@ export default function CardForm() {
       ...errors,
       cardHolderName: !formValues.cardHolderName.trim(),
       cardNumber:
-        !isDigitsOnly(formValues.cardNumber.replace(/\s/g, "")) &&
+        !isDigitsOnly(formValues.cardNumber.replace(/\s/g, "")) ||
         formValues.cardNumber.length < 16,
       expMonth: !formValues.expMonth.trim(),
       expYear: !formValues.expYear.trim(),
@@ -62,10 +62,13 @@ export default function CardForm() {
       onSubmit={handleSubmit}
     >
       <div className="flex flex-col gap-[0.9rem]">
-        <p className="uppercase tracking-[0.2rem]">Cardholder Name</p>
+        <label className="uppercase tracking-[0.2rem]" htmlFor="cardHolderName">
+          Cardholder Name
+        </label>
         <input
           type="text"
           name="cardHolderName"
+          id="cardHolderName"
           placeholder="e.g. Jane Appleseed"
           className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
