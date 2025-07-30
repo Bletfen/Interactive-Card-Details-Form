@@ -39,7 +39,8 @@ export default function CardForm() {
     } else if (["expMonth", "expYear", "cvc"].includes(name)) {
       if (!isDigitsOnly(value)) {
         setFormValues({ ...formValues, [name]: value });
-      } else {
+      }
+    } else {
       setFormValues({ ...formValues, [name]: value });
     }
   };
