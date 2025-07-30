@@ -29,7 +29,7 @@ export default function CardForm() {
     cvc: false,
   });
   // const [submit, setSubmit] = useState<boolean>(false);
-  const isDigitsOnly = (value: string) => /^\d+$/.test(value);
+  const isDigitsOnly = (value: string) => /^\d*$/.test(value);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     if (name === "cardNumber") {
@@ -40,6 +40,8 @@ export default function CardForm() {
       if (isDigitsOnly(value)) {
         setFormValues({ ...formValues, [name]: value });
       }
+    } else if (name === "cvc" && value.length < 3) {
+      setFormValues({ ...formValues, [name]: value });
     } else {
       setFormValues({ ...formValues, [name]: value });
     }
@@ -173,9 +175,7 @@ export default function CardForm() {
               rounded-[0.8rem] pl-[1.6rem] py-[1.1rem]
               w-full
               text-[1.8rem] ${
-                errors.cardHolderName
-                  ? "outline outline-2 outline-[#ff5050]"
-                  : ""
+                errors.cvc ? "outline outline-2 outline-[#ff5050]" : ""
               }`}
             value={formValues.cvc}
             onChange={handleChange}
