@@ -14,7 +14,7 @@ export default function Cards() {
       bg-[linear-gradient(169deg,_#fff_5%,_#D2D3D9_91.69%)]
       h-[15.7rem] pt-[1.4rem] 
       rounded-md flex flex-col gap-[1.5rem] ml-[7.3rem]
-      xl:mt-[46.9rem] xl:bg-[url('images/bg-card-back.png')]
+      xl:mt-[46.9rem] xl:bg-[url('/images/bg-card-back.png')]
       xl:bg-no-repeat xl:bg-center xl:w-[44.7rem] xl:h-[24.5rem]
       xl:m-[unset] xl:transform xl:translate-x-1/2"
       >
