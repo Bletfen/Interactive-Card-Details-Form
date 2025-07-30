@@ -122,6 +122,7 @@ export default function CardForm() {
             <input
               type="text"
               name="expYear"
+              id="expYear"
               placeholder="YY"
               className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
