@@ -1,6 +1,6 @@
 import type { formState } from "../types";
 
-export default function Cards() {
+export default function Cards({ formValues }: { formValues: formState }) {
   return (
     <div
       className="w-full 
