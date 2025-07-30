@@ -13,7 +13,7 @@ type errorState = {
   expYear: boolean;
   cvc: boolean;
 };
-
+const maxChar = 16;
 export default function CardForm() {
   const [formValues, setFormValues] = useState<formState>({
     cardHolderName: "",
@@ -32,6 +32,9 @@ export default function CardForm() {
   // const [submit, setSubmit] = useState<boolean>(false);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
+    if (event.target.value.length > 16) {
+      return;
+    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
