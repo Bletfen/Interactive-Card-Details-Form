@@ -28,7 +28,6 @@ export default function CardForm() {
     expYear: false,
     cvc: false,
   });
-  // const [submit, setSubmit] = useState<boolean>(false);
   const isDigitsOnly = (value: string) => /^\d*$/.test(value);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
