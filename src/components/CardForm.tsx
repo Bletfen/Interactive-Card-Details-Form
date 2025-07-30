@@ -109,6 +109,7 @@ export default function CardForm() {
               value={formValues.expYear}
             />
           </div>
+          {errors.expMonth && <p>Can't be blank</p>}
         </div>
         <div className="w-full flex flex-col gap-[0.9rem]">
           <p className="uppercase tracking-[0.2rem]">CVC</p>
