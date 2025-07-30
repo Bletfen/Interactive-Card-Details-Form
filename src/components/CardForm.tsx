@@ -20,8 +20,8 @@ export default function CardForm({
   setFormValues,
 }: {
   setSubmit: React.Dispatch<React.SetStateAction<boolean>>;
-  formValue: formState;
-  setFormValue: React.Dispatch<React.SetStateAction<formState>>;
+  formValues: formState;
+  setFormValues: React.Dispatch<React.SetStateAction<formState>>;
 }) {
   // const [formValues, setFormValues] = useState<formState>({
   //   cardHolderName: "",

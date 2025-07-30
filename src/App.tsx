@@ -23,13 +23,13 @@ function App() {
     <div className="flex flex-col xl:flex-row xl:gap-[34.9rem]">
       <Cards />
       {submit ? (
-        <SubmitText
+        <SubmitText setSubmit={setSubmit} />
+      ) : (
+        <CardForm
           setSubmit={setSubmit}
           formValues={formValues}
-          setFormValue={setFormValues}
+          setFormValues={setFormValues}
         />
-      ) : (
-        <CardForm setSubmit={setSubmit} />
       )}
     </div>
   );
