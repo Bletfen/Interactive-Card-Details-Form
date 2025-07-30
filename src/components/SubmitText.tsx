@@ -9,6 +9,16 @@ export default function SubmitText({
   errors: TerrorState;
   setErrors: React.Dispatch<React.SetStateAction<TerrorState>>;
 }) {
+  const handleReset = () => {
+    setErrors({
+      ...errors,
+      cardHolderName: false,
+      cardNumber: false,
+      expMonth: false,
+      expYear: false,
+      cvc: false,
+    });
+  };
   return (
     <div
       className="flex flex-col items-center mt-[9.1rem] 
@@ -54,7 +64,7 @@ export default function SubmitText({
         className="py-[1.5rem] bg-[#21092f] 
       w-full rounded-[0.8rem] mt-[4.8rem] text-[#fff] text-[1.8rem]
       font-medium cursor-[pointer]"
-        onClick={() => setSubmit(true)}
+        onClick={handleReset}
       >
         Continue
       </button>
