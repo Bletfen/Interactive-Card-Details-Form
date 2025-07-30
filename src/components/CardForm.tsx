@@ -1,36 +1,37 @@
 import { useState } from "react";
 type formState = {
   cardHolderName: string;
-  expMonth: string;
-  expYear: string;
-  cvc: string;
-};
-type errorState = {
-  cardHolderName: string;
   cardNumber: string;
   expMonth: string;
   expYear: string;
   cvc: string;
 };
+type errorState = {
+  cardHolderName: boolean;
+  cardNumber: boolean;
+  expMonth: boolean;
+  expYear: boolean;
+  cvc: boolean;
+};
 
 export default function CardForm() {
   const [formValues, setFormValues] = useState<formState>({
-    cardHolderName: "",
-    expMonth: "",
-    expYear: "",
-    cvc: "",
-  });
-  const [errors, setErrors] = useState<errorState>({
     cardHolderName: "",
     cardNumber: "",
     expMonth: "",
     expYear: "",
     cvc: "",
   });
+  const [errors, setErrors] = useState<errorState>({
+    cardHolderName: false,
+    cardNumber: false,
+    expMonth: false,
+    expYear: false,
+    cvc: false,
+  });
   // const [submit, setSubmit] = useState<boolean>(false);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (!formValues.cardHolderName) {
-    }
+    setFormValues({ ...formValues, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = () => {
@@ -53,7 +54,7 @@ export default function CardForm() {
           className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
           text-[1.8rem]"
-          value={!formValues.cardHolderName ? formValues.cardHolderName : ""}
+          value={formValues.cardHolderName}
           onChange={handleChange}
         />
         {errors.cardHolderName && <p>{errors.cardHolderName}</p>}
