@@ -131,6 +131,7 @@ export default function CardForm() {
         </div>
       </div>
       <button
+        type="submit"
         className="w-full bg-[#21092f] 
       text-[#fff] py-[1.5rem] rounded-[0.8rem]
       text-[1.8rem] mt-[0.8rem]
