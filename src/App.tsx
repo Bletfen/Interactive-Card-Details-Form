@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="flex flex-col xl:flex-row xl:gap-[34.9rem]">
       <Cards />
-      <CardForm setSubmit={setSubmit} />
+      {submit ? <SubmitText /> : <CardForm setSubmit={setSubmit} />}
     </div>
   );
 }
