@@ -3,7 +3,6 @@ import Cards from "./components/Cards";
 import CardForm from "./components/CardForm";
 import SubmitText from "./components/SubmitText";
 import { useState } from "react";
-import type { TerrorState } from "./types";
 function App() {
   const [submit, setSubmit] = useState<boolean>(false);
   return (
