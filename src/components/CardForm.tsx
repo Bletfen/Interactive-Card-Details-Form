@@ -36,8 +36,8 @@ export default function CardForm() {
       const formatted = noSpaces.match(/.{1,4}/g)?.join(" ") || "";
       setFormValues({ ...formValues, [name]: formatted });
     } else {
+      setFormValues({ ...formValues, [event.target.name]: event.target.value });
     }
-    setFormValues({ ...formValues, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
