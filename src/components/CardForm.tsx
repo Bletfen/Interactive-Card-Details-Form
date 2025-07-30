@@ -86,34 +86,28 @@ export default function CardForm() {
         <div className="flex flex-col gap-[0.9rem]">
           <p className="uppercase tracking-[0.2rem]">Exp. Date (MM/YY)</p>
           <div className="flex gap-[0.8rem] xl:gap-[1rem]">
-            <div className="flex flex-col items-start gap-[0.8rem]">
-              <input
-                type="text"
-                name="expMonth"
-                placeholder="MM"
-                className="border border-[#dfdee0] 
+            <input
+              type="text"
+              name="expMonth"
+              placeholder="MM"
+              className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
           w-[7.2rem]
           text-[1.8rem]
           xl:w-[8rem]"
-                value={formValues.expMonth}
-              />
-              {errors.expMonth && <p>Can't be blank</p>}
-            </div>
-            <div className="flex flex-col items-start gap-[0.8rem]">
-              <input
-                type="text"
-                name="expYear"
-                placeholder="YY"
-                className="border border-[#dfdee0] 
+              value={formValues.expMonth}
+            />
+            <input
+              type="text"
+              name="expYear"
+              placeholder="YY"
+              className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
           w-[7.2rem]
           text-[1.8rem]
           xl:w-[8rem]"
-                value={formValues.expYear}
-              />
-              {errors.expMonth && <p>Can't be blank</p>}
-            </div>
+              value={formValues.expYear}
+            />
           </div>
         </div>
         <div className="w-full flex flex-col gap-[0.9rem]">
