@@ -100,11 +100,15 @@ export default function CardForm() {
 
       <div className="flex gap-[1.1rem] xl:gap-[2rem]">
         <div className="flex flex-col gap-[0.9rem]">
-          <p className="uppercase tracking-[0.2rem]">Exp. Date (MM/YY)</p>
+          <p className="uppercase tracking-[0.2rem]">
+            Exp. Date (<label htmlFor="expMonth">MM</label>/
+            <label htmlFor="expYear">YY</label>)
+          </p>
           <div className="flex gap-[0.8rem] xl:gap-[1rem]">
             <input
               type="text"
               name="expMonth"
+              id="expMonth"
               placeholder="MM"
               className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
