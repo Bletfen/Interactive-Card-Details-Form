@@ -34,6 +34,8 @@ export default function CardForm() {
     if (name === "cardNumber") {
       const noSpaces = values.replace(/\s/g, "").slice(0, 16);
       const formatted = noSpaces.match(/.{1,4}/g)?.join(" ") || "";
+      setFormValues({ ...formValues, [name]: formatted });
+    } else {
     }
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
   };
