@@ -30,7 +30,7 @@ export default function Cards({ formValues }: { formValues: formState }) {
         xl:text-[1.4rem] xl:tracking-[0.2rem]
         "
         >
-          000
+          {formValues.cvc ? formValues.cvc : "000"}
         </div>
       </div>
 
@@ -62,7 +62,9 @@ export default function Cards({ formValues }: { formValues: formState }) {
           className="text-[1.8rem] tracking-[2.2px] mt-[3.7rem] font-medium
         xl:text-[2.8rem] xl:tracking-[3.422px] xl:mt-[6.4rem]"
         >
-          0000 0000 0000 0000
+          {formValues.cardNumber
+            ? formValues.cardNumber
+            : "0000 0000 0000 0000"}
         </p>
         <div
           className="uppercase flex text-[0.9rem] tracking-[1.286px]
@@ -70,8 +72,15 @@ export default function Cards({ formValues }: { formValues: formState }) {
         xl:text-[1.4rem] xl:tracking-[0.2rem]
         "
         >
-          <span>felicia leire</span>
-          <span>09/26</span>
+          <span>
+            {formValues.cardHolderName
+              ? formValues.cardHolderName
+              : "JANE APPLESEED"}
+          </span>
+          <span>
+            {formValues.expMonth ? formValues.expMonth : "00"}/
+            {formValues.expYear ? formValues.expYear : "00"}
+          </span>
         </div>
       </div>
     </div>
