@@ -30,7 +30,12 @@ export default function CardForm() {
   });
   // const [submit, setSubmit] = useState<boolean>(false);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFormValues({ ...formValues, [event.target.name]: event.target.value });
+    if (event.target.name === "cardNumber") {
+      const formatted = formValues.cardNumber.match(/.{1,4}/g)?.join(" ") || "";
+      setFormValues({ ...formValues, [event.target.name]: formatted });
+    } else {
+      setFormValues({ ...formValues, [event.target.name]: event.target.value });
+    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
