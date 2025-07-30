@@ -43,10 +43,15 @@ export default function CardForm() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (
+      !isDigitsOnly(formValues.cardNumber.trim()) &&
+      formValues.cardNumber.length < 16
+    ) {
+      setErrors({ ...errors, cardNumber: true });
+    }
     setErrors({
       ...errors,
       cardHolderName: !formValues.cardHolderName.trim(),
-      cardNumber: !isDigitsOnly(formValues.cardNumber.trim()),
       expMonth: !formValues.expMonth.trim(),
       expYear: !formValues.expYear.trim(),
       cvc: !formValues.cvc.trim(),
