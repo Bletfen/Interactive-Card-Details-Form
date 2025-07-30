@@ -60,6 +60,15 @@ export default function CardForm({
       cvc: !formValues.cvc.trim() || formValues.cvc.length < 3,
     };
     setErrors(newErrors);
+    checkIfNoErrors(newErrors);
+  };
+
+  const checkIfNoErrors = (
+    newErrors: { [s: string]: unknown } | ArrayLike<unknown>
+  ) => {
+    if (Object.values(newErrors).every((value) => value === false)) {
+      setSubmit(true);
+    }
   };
   return (
     <form
