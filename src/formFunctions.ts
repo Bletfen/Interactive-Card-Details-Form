@@ -46,7 +46,7 @@ export const handleSubmit = (
       !isDigitsOnly(formValues.cardNumber.replace(/\s/g, "")) ||
       formValues.cardNumber.length < 16,
     expMonth: !formValues.expMonth.trim(),
-    expYear: !formValues.expYear.trim(),
+    expYear: !formValues.expYear.trim() || formValues.expYear.length < 2,
     cvc: !formValues.cvc.trim() || formValues.cvc.length < 3,
   };
   setErrors(newErrors);

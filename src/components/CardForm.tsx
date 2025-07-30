@@ -17,13 +17,6 @@ export default function CardForm({
   formValues: formState;
   setFormValues: React.Dispatch<React.SetStateAction<formState>>;
 }) {
-  // const [formValues, setFormValues] = useState<formState>({
-  //   cardHolderName: "",
-  //   cardNumber: "",
-  //   expMonth: "",
-  //   expYear: "",
-  //   cvc: "",
-  // });
   const [errors, setErrors] = useState<errorState>({
     cardHolderName: false,
     cardNumber: false,
