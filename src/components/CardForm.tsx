@@ -30,6 +30,9 @@ export default function CardForm() {
   });
   // const [submit, setSubmit] = useState<boolean>(false);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, values } = event.target;
+    if (name === "cardNumber") {
+    }
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
   };
 
