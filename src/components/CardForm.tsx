@@ -109,7 +109,7 @@ export default function CardForm() {
               value={formValues.expYear}
             />
           </div>
-          {errors.expMonth && <p>Can't be blank</p>}
+          {(errors.expMonth || errors.expYear) && <p>Can't be blank</p>}
         </div>
         <div className="w-full flex flex-col gap-[0.9rem]">
           <p className="uppercase tracking-[0.2rem]">CVC</p>
@@ -123,6 +123,7 @@ export default function CardForm() {
           text-[1.8rem]"
             value={formValues.cvc}
           />
+          {errors.cvc && <p>Can't be blank</p>}
         </div>
       </div>
       <button
