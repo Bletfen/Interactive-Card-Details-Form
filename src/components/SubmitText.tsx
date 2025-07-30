@@ -1,7 +1,13 @@
+import type { TerrorState } from "../types";
+
 export default function SubmitText({
   setSubmit,
+  errors,
+  setErrors,
 }: {
   setSubmit: React.Dispatch<React.SetStateAction<boolean>>;
+  errors: TerrorState;
+  setErrors: React.Dispatch<React.SetStateAction<TerrorState>>;
 }) {
   return (
     <div
