@@ -59,18 +59,7 @@ export default function CardForm({
       expYear: !formValues.expYear.trim(),
       cvc: !formValues.cvc.trim() || formValues.cvc.length < 3,
     };
-    setErrors({
-      ...errors,
-    });
-    if (
-      errors.cardHolderName &&
-      errors.cardNumber &&
-      errors.expMonth &&
-      errors.expYear &&
-      errors.cvc
-    ) {
-      setSubmit(true);
-    }
+    setErrors(newErrors);
   };
   return (
     <form
