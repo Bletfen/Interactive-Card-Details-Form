@@ -5,6 +5,13 @@ import SubmitText from "./components/SubmitText";
 import { useState } from "react";
 function App() {
   const [submit, setSubmit] = useState<boolean>(false);
+  const [formValues, setFormValues] = useState<formState>({
+    cardHolderName: "",
+    cardNumber: "",
+    expMonth: "",
+    expYear: "",
+    cvc: "",
+  });
   return (
     <div className="flex flex-col xl:flex-row xl:gap-[34.9rem]">
       <Cards />
