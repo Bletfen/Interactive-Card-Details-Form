@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { handleChange, handleSubmit, checkIfNoErrors } from "../formFunctions";
 type formState = {
   cardHolderName: string;
   cardNumber: string;
@@ -32,50 +33,54 @@ export default function CardForm({
     expYear: false,
     cvc: false,
   });
-  const isDigitsOnly = (value: string) => /^\d*$/.test(value);
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    if (name === "cardNumber") {
-      const noSpaces = value.replace(/\s/g, "").slice(0, 16);
-      const formatted = noSpaces.match(/.{1,4}/g)?.join(" ") || "";
-      setFormValues({ ...formValues, [name]: formatted });
-    } else if (["expMonth", "expYear", "cvc"].includes(name)) {
-      if (isDigitsOnly(value)) {
-        setFormValues({ ...formValues, [name]: value });
-      }
-    } else {
-      setFormValues({ ...formValues, [name]: value });
-    }
-  };
+  // const isDigitsOnly = (value: string) => /^\d*$/.test(value);
+  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value } = event.target;
+  //   if (name === "cardNumber") {
+  //     const noSpaces = value.replace(/\s/g, "").slice(0, 16);
+  //     const formatted = noSpaces.match(/.{1,4}/g)?.join(" ") || "";
+  //     setFormValues({ ...formValues, [name]: formatted });
+  //   } else if (["expMonth", "expYear", "cvc"].includes(name)) {
+  //     if (isDigitsOnly(value)) {
+  //       setFormValues({ ...formValues, [name]: value });
+  //     }
+  //   } else {
+  //     setFormValues({ ...formValues, [name]: value });
+  //   }
+  // };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const newErrors = {
-      cardHolderName: !formValues.cardHolderName.trim(),
-      cardNumber:
-        !isDigitsOnly(formValues.cardNumber.replace(/\s/g, "")) ||
-        formValues.cardNumber.length < 16,
-      expMonth: !formValues.expMonth.trim(),
-      expYear: !formValues.expYear.trim(),
-      cvc: !formValues.cvc.trim() || formValues.cvc.length < 3,
-    };
-    setErrors(newErrors);
-    checkIfNoErrors(newErrors);
-  };
+  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   const newErrors = {
+  //     cardHolderName: !formValues.cardHolderName.trim(),
+  //     cardNumber:
+  //       !isDigitsOnly(formValues.cardNumber.replace(/\s/g, "")) ||
+  //       formValues.cardNumber.length < 16,
+  //     expMonth: !formValues.expMonth.trim(),
+  //     expYear: !formValues.expYear.trim(),
+  //     cvc: !formValues.cvc.trim() || formValues.cvc.length < 3,
+  //   };
+  //   setErrors(newErrors);
+  //   checkIfNoErrors(newErrors);
+  // };
 
-  const checkIfNoErrors = (
-    newErrors: { [s: string]: unknown } | ArrayLike<unknown>
-  ) => {
-    if (Object.values(newErrors).every((value) => value === false)) {
-      setSubmit(true);
-    }
-  };
+  // const checkIfNoErrors = (
+  //   newErrors: { [s: string]: unknown } | ArrayLike<unknown>
+  // ) => {
+  //   if (Object.values(newErrors).every((value) => value === false)) {
+  //     setSubmit(true);
+  //   }
+  // };
   return (
     <form
       className="mt-[9.2rem] flex flex-col text-start text-[#21092f]
    text-[1.2rem] font-medium px-[2.4rem] gap-[2rem] pb-[4.5rem]
    self-center xl:gap-[2.6rem] xl:m-[unset]"
-      onSubmit={handleSubmit}
+      onSubmit={(e) =>
+        handleSubmit(e, formValues, setErrors, (errors) =>
+          checkIfNoErrors(errors, setSubmit)
+        )
+      }
     >
       <div className="flex flex-col gap-[0.9rem]">
         <label className="uppercase tracking-[0.2rem]" htmlFor="cardHolderName">
@@ -92,7 +97,7 @@ export default function CardForm({
             errors.cardHolderName ? "outline outline-2 outline-[#ff5050]" : ""
           }`}
           value={formValues.cardHolderName}
-          onChange={handleChange}
+          onChange={(e) => handleChange(e, formValues, setFormValues)}
         />
         {errors.cardHolderName && (
           <p className="text-[#ff5050] text-[1.2rem] font-medium">
@@ -116,7 +121,7 @@ export default function CardForm({
             errors.cardNumber ? "outline outline-2 outline-[#ff5050]" : ""
           }`}
           value={formValues.cardNumber}
-          onChange={handleChange}
+          onChange={(e) => handleChange(e, formValues, setFormValues)}
           maxLength={19}
         />
         {errors.cardNumber && (
@@ -146,7 +151,7 @@ export default function CardForm({
                   errors.expMonth ? "outline outline-2 outline-[#ff5050]" : ""
                 }`}
               value={formValues.expMonth}
-              onChange={handleChange}
+              onChange={(e) => handleChange(e, formValues, setFormValues)}
               maxLength={2}
             />
             <input
@@ -162,7 +167,7 @@ export default function CardForm({
                   errors.expYear ? "outline outline-2 outline-[#ff5050]" : ""
                 }`}
               value={formValues.expYear}
-              onChange={handleChange}
+              onChange={(e) => handleChange(e, formValues, setFormValues)}
               maxLength={2}
             />
           </div>
@@ -188,7 +193,7 @@ export default function CardForm({
                 errors.cvc ? "outline outline-2 outline-[#ff5050]" : ""
               }`}
             value={formValues.cvc}
-            onChange={handleChange}
+            onChange={(e) => handleChange(e, formValues, setFormValues)}
             maxLength={3}
           />
           {errors.cvc && (
