@@ -33,44 +33,6 @@ export default function CardForm({
     expYear: false,
     cvc: false,
   });
-  // const isDigitsOnly = (value: string) => /^\d*$/.test(value);
-  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { name, value } = event.target;
-  //   if (name === "cardNumber") {
-  //     const noSpaces = value.replace(/\s/g, "").slice(0, 16);
-  //     const formatted = noSpaces.match(/.{1,4}/g)?.join(" ") || "";
-  //     setFormValues({ ...formValues, [name]: formatted });
-  //   } else if (["expMonth", "expYear", "cvc"].includes(name)) {
-  //     if (isDigitsOnly(value)) {
-  //       setFormValues({ ...formValues, [name]: value });
-  //     }
-  //   } else {
-  //     setFormValues({ ...formValues, [name]: value });
-  //   }
-  // };
-
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   const newErrors = {
-  //     cardHolderName: !formValues.cardHolderName.trim(),
-  //     cardNumber:
-  //       !isDigitsOnly(formValues.cardNumber.replace(/\s/g, "")) ||
-  //       formValues.cardNumber.length < 16,
-  //     expMonth: !formValues.expMonth.trim(),
-  //     expYear: !formValues.expYear.trim(),
-  //     cvc: !formValues.cvc.trim() || formValues.cvc.length < 3,
-  //   };
-  //   setErrors(newErrors);
-  //   checkIfNoErrors(newErrors);
-  // };
-
-  // const checkIfNoErrors = (
-  //   newErrors: { [s: string]: unknown } | ArrayLike<unknown>
-  // ) => {
-  //   if (Object.values(newErrors).every((value) => value === false)) {
-  //     setSubmit(true);
-  //   }
-  // };
   return (
     <form
       className="mt-[9.2rem] flex flex-col text-start text-[#21092f]
