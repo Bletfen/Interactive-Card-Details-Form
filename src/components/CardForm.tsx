@@ -30,12 +30,7 @@ export default function CardForm() {
   });
   // const [submit, setSubmit] = useState<boolean>(false);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.name === "cardNumber") {
-      const formatted = formValues.cardNumber.match(/.{1,4}/g)?.join(" ") || "";
-      setFormValues({ ...formValues, [event.target.name]: formatted });
-    } else {
-      setFormValues({ ...formValues, [event.target.name]: event.target.value });
-    }
+    setFormValues({ ...formValues, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -82,7 +77,7 @@ export default function CardForm() {
           text-[1.8rem]"
           value={formValues.cardNumber}
           onChange={handleChange}
-          maxLength={16}
+          maxLength={19}
         />
         {errors.cardNumber && <p>Wrong format, numbers only</p>}
       </div>
