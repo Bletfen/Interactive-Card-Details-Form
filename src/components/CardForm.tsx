@@ -36,19 +36,10 @@ export default function CardForm() {
       const noSpaces = value.replace(/\s/g, "").slice(0, 16);
       const formatted = noSpaces.match(/.{1,4}/g)?.join(" ") || "";
       setFormValues({ ...formValues, [name]: formatted });
-    } else if (name === "expMonth") {
-      if (!isDigitsOnly(formValues.expMonth)) {
+    } else if (["expMonth", "expYear", "cvc"].includes(name)) {
+      if (!isDigitsOnly(value)) {
         setFormValues({ ...formValues, [name]: value });
-      }
-    } else if (name === "expYear") {
-      if (!isDigitsOnly(formValues.expYear)) {
-        setFormValues({ ...formValues, [name]: value });
-      }
-    } else if (name === "cvc") {
-      if (!isDigitsOnly(formValues.cvc)) {
-        setFormValues({ ...formValues, [name]: value });
-      }
-    } else {
+      } else {
       setFormValues({ ...formValues, [name]: value });
     }
   };
