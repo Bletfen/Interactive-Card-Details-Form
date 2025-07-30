@@ -96,6 +96,7 @@ export default function CardForm() {
           text-[1.8rem]
           xl:w-[8rem]"
               value={formValues.expMonth}
+              onChange={handleChange}
             />
             <input
               type="text"
@@ -107,6 +108,7 @@ export default function CardForm() {
           text-[1.8rem]
           xl:w-[8rem]"
               value={formValues.expYear}
+              onChange={handleChange}
             />
           </div>
           {(errors.expMonth || errors.expYear) && <p>Can't be blank</p>}
@@ -122,6 +124,7 @@ export default function CardForm() {
           w-full
           text-[1.8rem]"
             value={formValues.cvc}
+            onChange={handleChange}
           />
           {errors.cvc && <p>Can't be blank</p>}
         </div>
