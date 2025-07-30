@@ -137,10 +137,13 @@ export default function CardForm() {
           {(errors.expMonth || errors.expYear) && <p>Can't be blank</p>}
         </div>
         <div className="w-full flex flex-col gap-[0.9rem]">
-          <p className="uppercase tracking-[0.2rem]">CVC</p>
+          <label className="uppercase tracking-[0.2rem]" htmlFor="cvc">
+            CVC
+          </label>
           <input
             type="text"
             name="cvc"
+            id="cvc"
             placeholder="e.g. 123"
             className="border border-[#dfdee0] 
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
