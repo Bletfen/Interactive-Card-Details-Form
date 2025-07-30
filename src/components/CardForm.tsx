@@ -29,6 +29,7 @@ export default function CardForm() {
     cvc: false,
   });
   // const [submit, setSubmit] = useState<boolean>(false);
+  const isDigitsOnly = (value: string) => /^\d+$/.test(value);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     if (name === "cardNumber") {
@@ -44,11 +45,11 @@ export default function CardForm() {
     e.preventDefault();
     setErrors({
       ...errors,
-      cardHolderName: !formValues.cardHolderName,
-      cardNumber: !formValues.cardNumber,
-      expMonth: !formValues.expMonth,
-      expYear: !formValues.expYear,
-      cvc: !formValues.cvc,
+      cardHolderName: !formValues.cardHolderName.trim(),
+      cardNumber: !isDigitsOnly(formValues.cardNumber.trim()),
+      expMonth: !formValues.expMonth.trim(),
+      expYear: !formValues.expYear.trim(),
+      cvc: !formValues.cvc.trim(),
     });
   };
   return (
