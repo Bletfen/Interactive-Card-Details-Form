@@ -32,9 +32,6 @@ export default function CardForm() {
   // const [submit, setSubmit] = useState<boolean>(false);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
-    if (event.target.value.length > 16) {
-      return;
-    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -81,6 +78,7 @@ export default function CardForm() {
           text-[1.8rem]"
           value={formValues.cardNumber}
           onChange={handleChange}
+          maxLength={16}
         />
         {errors.cardNumber && <p>Wrong format, numbers only</p>}
       </div>
