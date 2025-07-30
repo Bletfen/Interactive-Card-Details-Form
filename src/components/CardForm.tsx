@@ -75,7 +75,7 @@ export default function CardForm() {
           id="cardHolderName"
           placeholder="e.g. Jane Appleseed"
           className="border border-[#dfdee0] 
-          rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
+          rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] 
           text-[1.8rem]"
           value={formValues.cardHolderName}
           onChange={handleChange}
@@ -97,7 +97,7 @@ export default function CardForm() {
           id="cardNumber"
           placeholder="e.g. 1234 5678 9123 0000"
           className="border border-[#dfdee0] 
-          rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
+          rounded-[0.8rem] pl-[1.6rem] py-[1.1rem]
           text-[1.8rem]"
           value={formValues.cardNumber}
           onChange={handleChange}
@@ -123,7 +123,7 @@ export default function CardForm() {
               id="expMonth"
               placeholder="MM"
               className="border border-[#dfdee0] 
-          rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
+          rounded-[0.8rem] pl-[1.6rem] py-[1.1rem]
           w-[7.2rem]
           text-[1.8rem]
           xl:w-[8rem]"
@@ -137,7 +137,7 @@ export default function CardForm() {
               id="expYear"
               placeholder="YY"
               className="border border-[#dfdee0] 
-          rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
+          rounded-[0.8rem] pl-[1.6rem] py-[1.1rem]
           w-[7.2rem]
           text-[1.8rem]
           xl:w-[8rem]"
@@ -162,7 +162,7 @@ export default function CardForm() {
             id="cvc"
             placeholder="e.g. 123"
             className="border border-[#dfdee0] 
-          rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
+          rounded-[0.8rem] pl-[1.6rem] py-[1.1rem]
           w-full
           text-[1.8rem]"
             value={formValues.cvc}
