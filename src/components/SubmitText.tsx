@@ -1,5 +1,3 @@
-import type { TerrorState } from "../types";
-
 export default function SubmitText({
   setSubmit,
 }: {
