@@ -80,7 +80,11 @@ export default function CardForm() {
           value={formValues.cardHolderName}
           onChange={handleChange}
         />
-        {errors.cardHolderName && <p>Can't be blank</p>}
+        {errors.cardHolderName && (
+          <p className="text-[#ff5050] text-[1.2rem] font-medium">
+            Can't be blank
+          </p>
+        )}
       </div>
 
       <div className="flex flex-col gap-[0.9rem]">
@@ -99,7 +103,11 @@ export default function CardForm() {
           onChange={handleChange}
           maxLength={19}
         />
-        {errors.cardNumber && <p>Wrong format, numbers only</p>}
+        {errors.cardNumber && (
+          <p className="text-[#ff5050] text-[1.2rem] font-medium">
+            Wrong format, numbers only
+          </p>
+        )}
       </div>
 
       <div className="flex gap-[1.1rem] xl:gap-[2rem]">
@@ -138,7 +146,11 @@ export default function CardForm() {
               maxLength={2}
             />
           </div>
-          {(errors.expMonth || errors.expYear) && <p>Can't be blank</p>}
+          {(errors.expMonth || errors.expYear) && (
+            <p className="text-[#ff5050] text-[1.2rem] font-medium">
+              Can't be blank
+            </p>
+          )}
         </div>
         <div className="w-full flex flex-col gap-[0.9rem]">
           <label className="uppercase tracking-[0.2rem]" htmlFor="cvc">
@@ -157,7 +169,11 @@ export default function CardForm() {
             onChange={handleChange}
             maxLength={3}
           />
-          {errors.cvc && <p>Can't be blank</p>}
+          {errors.cvc && (
+            <p className="text-[#ff5050] text-[1.2rem] font-medium">
+              Can't be blank
+            </p>
+          )}
         </div>
       </div>
       <button
