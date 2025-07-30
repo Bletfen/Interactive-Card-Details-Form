@@ -16,6 +16,8 @@ type errorState = {
 };
 export default function CardForm({
   setSubmit,
+  formValue,
+  setFormValue,
 }: {
   setSubmit: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
