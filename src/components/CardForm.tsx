@@ -34,16 +34,23 @@ export default function CardForm() {
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = () => {
-    if (!formValues.cardHolderName) {
-      setErrors({ ...errors });
-    }
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setErrors({
+      ...errors,
+      cardHolderName: !formValues.cardHolderName,
+      cardNumber: !formValues.cardNumber,
+      expMonth: !formValues.expMonth,
+      expYear: !formValues.expYear,
+      cvc: !formValues.cvc,
+    });
   };
   return (
     <form
       className="mt-[9.2rem] flex flex-col text-start text-[#21092f]
    text-[1.2rem] font-medium px-[2.4rem] gap-[2rem] pb-[4.5rem]
    self-center xl:gap-[2.6rem]"
+      onSubmit={handleSubmit}
     >
       <div className="flex flex-col gap-[0.9rem]">
         <p className="uppercase tracking-[0.2rem]">Cardholder Name</p>
@@ -57,7 +64,7 @@ export default function CardForm() {
           value={formValues.cardHolderName}
           onChange={handleChange}
         />
-        {errors.cardHolderName && <p>{errors.cardHolderName}</p>}
+        {errors.cardHolderName && <p>Can't be blank</p>}
       </div>
 
       <div className="flex flex-col gap-[0.9rem]">
@@ -72,6 +79,7 @@ export default function CardForm() {
           value={formValues.cardNumber}
           onChange={handleChange}
         />
+        {errors.cardNumber && <p>Wrong format, numbers only</p>}
       </div>
 
       <div className="flex gap-[1.1rem] xl:gap-[2rem]">
@@ -87,6 +95,7 @@ export default function CardForm() {
           w-[7.2rem]
           text-[1.8rem]
           xl:w-[8rem]"
+              value={formValues.expMonth}
             />
             <input
               type="text"
@@ -97,6 +106,7 @@ export default function CardForm() {
           w-[7.2rem]
           text-[1.8rem]
           xl:w-[8rem]"
+              value={formValues.expYear}
             />
           </div>
         </div>
@@ -110,6 +120,7 @@ export default function CardForm() {
           rounded-[0.8rem] pl-[1.6rem] py-[1.1rem] outline-none
           w-full
           text-[1.8rem]"
+            value={formValues.cvc}
           />
         </div>
       </div>
