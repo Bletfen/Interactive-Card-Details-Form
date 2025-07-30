@@ -40,8 +40,6 @@ export default function CardForm() {
       if (isDigitsOnly(value)) {
         setFormValues({ ...formValues, [name]: value });
       }
-    } else if (name === "cvc" && value.length < 3) {
-      setFormValues({ ...formValues, [name]: value });
     } else {
       setFormValues({ ...formValues, [name]: value });
     }
@@ -57,7 +55,7 @@ export default function CardForm() {
         formValues.cardNumber.length < 16,
       expMonth: !formValues.expMonth.trim(),
       expYear: !formValues.expYear.trim(),
-      cvc: !formValues.cvc.trim(),
+      cvc: !formValues.cvc.trim() || formValues.cvc.length < 3,
     });
   };
   return (
