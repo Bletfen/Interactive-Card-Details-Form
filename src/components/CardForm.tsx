@@ -32,7 +32,7 @@ export default function CardForm() {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     if (name === "cardNumber") {
-      const noSpaces = values.replace(/\s/g, "").slice(0, 16);
+      const noSpaces = value.replace(/\s/g, "").slice(0, 16);
       const formatted = noSpaces.match(/.{1,4}/g)?.join(" ") || "";
       setFormValues({ ...formValues, [name]: formatted });
     } else {
