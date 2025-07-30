@@ -1,12 +1,6 @@
 import { useState } from "react";
 import { handleChange, handleSubmit, checkIfNoErrors } from "../formFunctions";
-type formState = {
-  cardHolderName: string;
-  cardNumber: string;
-  expMonth: string;
-  expYear: string;
-  cvc: string;
-};
+import type { formState } from "../types";
 type errorState = {
   cardHolderName: boolean;
   cardNumber: boolean;

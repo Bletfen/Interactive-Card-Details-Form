@@ -3,13 +3,7 @@ import Cards from "./components/Cards";
 import CardForm from "./components/CardForm";
 import SubmitText from "./components/SubmitText";
 import { useState } from "react";
-type formState = {
-  cardHolderName: string;
-  cardNumber: string;
-  expMonth: string;
-  expYear: string;
-  cvc: string;
-};
+import type { formState } from "./types";
 function App() {
   const [submit, setSubmit] = useState<boolean>(false);
   const [formValues, setFormValues] = useState<formState>({
