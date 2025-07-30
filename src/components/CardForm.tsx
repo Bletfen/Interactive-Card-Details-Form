@@ -50,8 +50,7 @@ export default function CardForm({
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setErrors({
-      ...errors,
+    const newErrors = {
       cardHolderName: !formValues.cardHolderName.trim(),
       cardNumber:
         !isDigitsOnly(formValues.cardNumber.replace(/\s/g, "")) ||
@@ -59,6 +58,9 @@ export default function CardForm({
       expMonth: !formValues.expMonth.trim(),
       expYear: !formValues.expYear.trim(),
       cvc: !formValues.cvc.trim() || formValues.cvc.length < 3,
+    };
+    setErrors({
+      ...errors,
     });
     if (
       errors.cardHolderName &&
