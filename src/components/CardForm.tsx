@@ -13,7 +13,6 @@ type errorState = {
   expYear: boolean;
   cvc: boolean;
 };
-const maxChar = 16;
 export default function CardForm() {
   const [formValues, setFormValues] = useState<formState>({
     cardHolderName: "",
@@ -110,6 +109,7 @@ export default function CardForm() {
           xl:w-[8rem]"
               value={formValues.expYear}
               onChange={handleChange}
+              maxLength={2}
             />
           </div>
           {(errors.expMonth || errors.expYear) && <p>Can't be blank</p>}
@@ -126,6 +126,7 @@ export default function CardForm() {
           text-[1.8rem]"
             value={formValues.cvc}
             onChange={handleChange}
+            maxLength={3}
           />
           {errors.cvc && <p>Can't be blank</p>}
         </div>
