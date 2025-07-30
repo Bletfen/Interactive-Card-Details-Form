@@ -6,7 +6,7 @@ export default function SubmitText({
   return (
     <div
       className="flex flex-col items-center mt-[9.1rem] 
-    px-[2.4rem] xl:justify-center xl:m-[unset] xl:ml-[10rem]"
+    px-[2.4rem] xl:justify-center xl:m-[unset] xl:ml-[10rem] xl:w-[38.1rem]"
     >
       <svg
         width="80"
